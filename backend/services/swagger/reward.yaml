@@ -1,0 +1,53 @@
+openapi: 3.0.0
+paths:
+  /rewards:
+    get:
+      tags:
+        - Rewards
+      summary: Get all rewards
+      responses:
+        '200':
+          description: List of rewards
+    post:
+      tags:
+        - Rewards
+      summary: Create a new reward
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reward'
+      responses:
+        '201':
+          description: Reward created
+  /rewards/{id}:
+    get:
+      tags:
+        - Rewards
+      summary: Get reward by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reward found
+components:
+  schemas:
+    Reward:
+      type: object
+      required:
+        - title
+        - pointsRequired
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        pointsRequired:
+          type: number
+        badgeIcon:
+          type: string

@@ -1,0 +1,72 @@
+openapi: 3.0.0
+paths:
+  /concerts:
+    get:
+      tags:
+        - Concerts
+      summary: Get all concerts
+      responses:
+        '200':
+          description: List of concerts
+    post:
+      tags:
+        - Concerts
+      summary: Create a new concert
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Concert'
+      responses:
+        '201':
+          description: Concert created
+  /concerts/{id}:
+    get:
+      tags:
+        - Concerts
+      summary: Get concert by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Concert found
+components:
+  schemas:
+    Concert:
+      type: object
+      required:
+        - name
+        - artist
+        - date
+        - location
+        - city
+        - country
+        - geoCoordinates
+      properties:
+        name:
+          type: string
+        artist:
+          type: string
+        date:
+          type: string
+          format: date-time
+        location:
+          type: string
+        venue:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        geoCoordinates:
+          type: object
+          properties:
+            lat:
+              type: number
+            lng:
+              type: number

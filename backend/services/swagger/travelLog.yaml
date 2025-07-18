@@ -1,0 +1,61 @@
+openapi: 3.0.0
+paths:
+  /travel-logs:
+    get:
+      tags:
+        - TravelLogs
+      summary: Get all travel logs
+      responses:
+        '200':
+          description: List of travel logs
+    post:
+      tags:
+        - TravelLogs
+      summary: Create a travel log
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TravelLog'
+      responses:
+        '201':
+          description: Travel log created
+  /travel-logs/{id}:
+    get:
+      tags:
+        - TravelLogs
+      summary: Get travel log by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Travel log found
+components:
+  schemas:
+    TravelLog:
+      type: object
+      required:
+        - concertId
+        - travelMode
+        - distanceKm
+        - emissionsKgCO2
+      properties:
+        userId:
+          type: string
+        artistId:
+          type: string
+        concertId:
+          type: string
+        travelMode:
+          type: string
+        distanceKm:
+          type: number
+        emissionsKgCO2:
+          type: number
+        notes:
+          type: string
