@@ -1,0 +1,60 @@
+openapi: 3.0.0
+paths:
+  /artists:
+    get:
+      tags:
+        - Artists
+      summary: Get all artists
+      responses:
+        '200':
+          description: List of artists
+    post:
+      tags:
+        - Artists
+      summary: Create a new artist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Artist'
+      responses:
+        '201':
+          description: Artist created
+  /artists/{id}:
+    get:
+      tags:
+        - Artists
+      summary: Get artist by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Artist found
+components:
+  schemas:
+    Artist:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        genre:
+          type: string
+        profileImage:
+          type: string
+        bio:
+          type: string
+        homeCity:
+          type: string
+        greenScore:
+          type: number
+        ecoInitiatives:
+          type: array
+          items:
+            type: string

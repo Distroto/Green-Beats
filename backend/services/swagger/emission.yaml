@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Emissions API
+  version: 1.0.0
+  description: Calculate and retrieve travel emissions related to concerts and users
+
+paths:
+  /emissions:
+    post:
+      summary: Log an emission based on travel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmissionRequest'
+      responses:
+        '201':
+          description: Emission log created and stored
+        '400':
+          description: Invalid input or concert location missing
+
+  /emissions/users/{id}/emissions:
+    get:
+      summary: Get all emission logs by user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 64e6ab22b6ab123456789abc
+      responses:
+        '200':
+          description: List of user travel logs and summary
+        '404':
+          description: User or logs not found
+
+  /emissions/suggestions/{concertId}:
+    get:
+      summary: Suggest greener travel modes to a concert
+      parameters:
+        - name: concertId
+          in: path
+          required: true
+          schema:
+            type: string
+            example: 64e6aaf9c1ab123456789abc
+      responses:
+        '200':
+          description: Emission comparison across travel modes
+        '404':
+          description: Concert not found or missing coordinates
+
+components:
+  schemas:
+    EmissionRequest:
+      type: object
+      required:
+        - userId
+        - concertId
+        - travelMode
+        - originLat
+        - originLng
+      properties:
+        userId:
+          type: string
+          example: 64e6ab22b6ab123456789abc
+        concertId:
+          type: string
+          example: 64e6aaf9c1ab123456789abc
+        travelMode:
+          type: string
+          enum: [car, train, flight, bus, bike, walk]
+        originLat:
+          type: number
+          example: 40.7128
+        originLng:
+          type: number
+          example: -74.0060

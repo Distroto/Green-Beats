@@ -1,0 +1,8 @@
+[
+  { "mode": "car", "kgCO2PerKm": 0.21 },
+  { "mode": "bus", "kgCO2PerKm": 0.1 },
+  { "mode": "train", "kgCO2PerKm": 0.041 },
+  { "mode": "flight", "kgCO2PerKm": 0.255 },
+  { "mode": "bike", "kgCO2PerKm": 0.0 },
+  { "mode": "walk", "kgCO2PerKm": 0.0 }
+]

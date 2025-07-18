@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Green Fest NYC",
+      "artist": "Eco Beats",
+      "date": "2025-08-20T19:00:00Z",
+      "location": "Central Park",
+      "venue": "Central Park Stage",
+      "city": "New York",
+      "country": "USA",
+      "geoCoordinates": { "lat": 40.785091, "lng": -73.968285 }
+    },
+    {
+      "name": "Sustain Sound LA",
+      "artist": "Carbon Cutters",
+      "date": "2025-09-10T20:00:00Z",
+      "location": "Hollywood Bowl",
+      "venue": "Hollywood Bowl",
+      "city": "Los Angeles",
+      "country": "USA",
+      "geoCoordinates": { "lat": 34.1122, "lng": -118.3391 }
+    },
+    {
+      "name": "Climate Beats London",
+      "artist": "Solar Waves",
+      "date": "2025-09-25T18:30:00Z",
+      "location": "Hyde Park",
+      "venue": "Hyde Park Green Stage",
+      "city": "London",
+      "country": "UK",
+      "geoCoordinates": { "lat": 51.507268, "lng": -0.165730 }
+    }
+  ]
+  

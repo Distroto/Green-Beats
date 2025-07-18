@@ -1,0 +1,48 @@
+[
+    {
+      "id": "a1",
+      "name": "Coldplay",
+      "genre": "Alternative Rock",
+      "profileImage": "https://example.com/images/coldplay.jpg",
+      "bio": "Coldplay is a British rock band known for integrating sustainability practices into their tours.",
+      "avgConcertEmissions": 2800,
+      "greenRating": 9.5
+    },
+    {
+      "id": "a2",
+      "name": "Billie Eilish",
+      "genre": "Pop",
+      "profileImage": "https://example.com/images/billie_eilish.jpg",
+      "bio": "Billie Eilish has publicly advocated for climate awareness and uses eco-friendly tour setups.",
+      "avgConcertEmissions": 2100,
+      "greenRating": 8.9
+    },
+    {
+      "id": "a3",
+      "name": "Radiohead",
+      "genre": "Alternative Rock",
+      "profileImage": "https://example.com/images/radiohead.jpg",
+      "bio": "Radiohead has been a long-time critic of environmental neglect in the music industry.",
+      "avgConcertEmissions": 2500,
+      "greenRating": 9.2
+    },
+    {
+      "id": "a4",
+      "name": "Ed Sheeran",
+      "genre": "Pop",
+      "profileImage": "https://example.com/images/ed_sheeran.jpg",
+      "bio": "Ed Sheeran offsets tour emissions by planting trees and reducing single-use plastics.",
+      "avgConcertEmissions": 2600,
+      "greenRating": 8.7
+    },
+    {
+      "id": "a5",
+      "name": "Imagine Dragons",
+      "genre": "Pop Rock",
+      "profileImage": "https://example.com/images/imagine_dragons.jpg",
+      "bio": "Imagine Dragons is experimenting with greener logistics on tour and energy-efficient setups.",
+      "avgConcertEmissions": 2400,
+      "greenRating": 8.5
+    }
+  ]
+  
