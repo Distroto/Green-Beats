@@ -2,8 +2,6 @@
 
 **Green Beats** is a climate-conscious concert companion app that empowers fans to reduce their environmental impact — starting with the biggest contributor to concert emissions: **fan travel**.
 
-This proof-of-concept calculates individual carbon footprints based on travel modes to concerts, rewards greener choices, and showcases artists’ sustainability efforts — making every gig a greener one.
-
 ---
 
 ## 🌍 Problem
@@ -20,15 +18,6 @@ Live music events generate **massive carbon footprints**, with **fan travel acco
 - 📊 **Visual Feedback** – See your impact instantly  
 - 🏅 **Reward System** – Earn green badges for low-carbon travel  
 - 🧠 *(Stretch)* **Artist Green Profile** – AI-generated summaries of artist sustainability efforts
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React + Tailwind CSS  
-- **Backend**: Node.js / Express *(optional for MVP)*  
-- **APIs**: Google Maps (distance), OpenAI/HuggingFace (artist summaries)  
-- **Data**: Static JSON for concert listings, emission factors
 
 ---
 
@@ -59,35 +48,13 @@ Inspired by Coldplay’s low-carbon world tour, Green Beats envisions a platform
 
 ---
 
-## 🧪 Try the Demo
-
-*(Link to deployed site or demo video)*
-
----
-
-## 📁 Folder Structure
-
-```
-/green-beats
-  ├── /src
-  │   ├── /components
-  │   ├── /pages
-  │   ├── /data (concerts.json, emissionFactors.json)
-  ├── /public
-  ├── App.js
-  └── README.md
-```
-
----
-
 ## 🤝 Team & Credits
 
 Built with 💚 at [Hackathon Name]
 
-- [Your Name] – Frontend, Logic, APIs  
+- [Ashwani] – Bussines, Market, Research  
 - [Teammate] – UI/UX, Data, Research  
-- [Teammate] – Sustainability Analysis, Outreach
-
+- [Teammate] – Frontend, Backend, DevOps, AI
 ---
 
 ## 📜 License
