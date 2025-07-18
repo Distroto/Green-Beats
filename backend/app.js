@@ -17,7 +17,6 @@ const emissionRoutes = require('./routes/emissionRoutes');
 const swaggerDocs = require('./services/swagger/index');
 const { connect } = require('mongoose');
 
-//Define App
 const app = express();
 app.use(express.json());
 
