@@ -26,7 +26,7 @@ const mergedDoc = {
       description: 'Development server'
     },
     {
-      url: 'https://api.greenbeats.com',
+      url: 'https://green-beats.onrender.com:3000',
       description: 'Production server'
     }
   ],
