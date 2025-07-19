@@ -6,6 +6,11 @@ const { userSchema } = require('../validators/userValidators');
 
 router.post('/', validate(userSchema), userController.createUser);
 router.get('/', userController.getAllUsers);
+
+// More specific route first
+router.get('/:id/profile', userController.getUserProfile);
+
+// Generic route last
 router.get('/:id', userController.getUserById);
 
 module.exports = router;

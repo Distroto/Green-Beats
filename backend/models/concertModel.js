@@ -8,6 +8,7 @@ const ConcertSchema = new mongoose.Schema({
   venue: { type: String },
   city: { type: String, required: true },
   country: { type: String, required: true },
+  externalId: { type: String, unique: true, index: true },
   geoCoordinates: {
     lat: Number,
     lng: Number

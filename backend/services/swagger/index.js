@@ -5,11 +5,22 @@ const router = express.Router();
 
 // Load each route's Swagger file
 const path = require('path');
-const userDoc = YAML.load(path.join(__dirname, 'user.yaml'));
-const artistDoc = YAML.load(path.join(__dirname, 'artist.yaml'));
-const concertDoc = YAML.load(path.join(__dirname, 'concert.yaml'));
-const travelLogDoc = YAML.load(path.join(__dirname, 'travelLog.yaml'));
-const rewardDoc = YAML.load(path.join(__dirname, 'reward.yaml'));
+
+const loadYamlSafely = (filename) => {
+  try {
+    return YAML.load(path.join(__dirname, filename));
+  } catch (error) {
+    console.warn(`Warning: Could not load ${filename}:`, error.message);
+    return { paths: {}, components: { schemas: {} } };
+  }
+};
+
+const userDoc = loadYamlSafely('user.yaml');
+const artistDoc = loadYamlSafely('artist.yaml');
+const concertDoc = loadYamlSafely('concert.yaml');
+const emissionDoc = loadYamlSafely('emission.yaml');
+const rewardDoc = loadYamlSafely('reward.yaml');
+const travelProofDoc = loadYamlSafely('travelProof.yaml');
 
 
 // Merge all into one Swagger spec (basic merge strategy)
@@ -34,16 +45,18 @@ const mergedDoc = {
     ...userDoc.paths,
     ...artistDoc.paths,
     ...concertDoc.paths,
-    ...travelLogDoc.paths,
-    ...rewardDoc.paths
+    ...emissionDoc.paths,
+    ...rewardDoc.paths,
+    ...travelProofDoc.paths
   },
   components: {
     schemas: {
       ...userDoc.components?.schemas,
       ...artistDoc.components?.schemas,
       ...concertDoc.components?.schemas,
-      ...travelLogDoc.components?.schemas,
-      ...rewardDoc.components?.schemas
+      ...emissionDoc.components?.schemas,
+      ...rewardDoc.components?.schemas,
+      ...travelProofDoc.components?.schemas
     }
   }
 };
