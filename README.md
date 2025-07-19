@@ -85,28 +85,26 @@ Inspired by Coldplay's low-carbon world tour and the urgent need for climate act
 
 ---
 
-## 🤝 Team & Credits
+## 📱 Mobile App Design
 
-Built with 💚 at Climate Hackathon 2025
-
-- **Abhishek Sokhal** – Backend Development, AI Integration, System Architecture
-- **Ashwani Khatri** – Business Strategy, Market Research, User Experience
-- **Anshika Vijay** – UI/UX Design, Data Analysis, Research
-
----
-
-## 📜 License
-
-MIT © 2025 Green Beats
-
----
+### Figma Prototypes
+- **Mobile App Design**: https://www.figma.com/design/Q7VP8OgyHf74r89wqOjc4W/Bar-Code-Scan-App--Community-?node-id=0-1&t=X6FuJ8LbuKgauiDj-1
 
 ## 🔗 Quick Links
 
 - **API Documentation**: `/api-docs` (Swagger UI)
-- **Technical Documentation**: See detailed technical docs for complete user flow
-- **Live Demo**: Backend server running on port 3000
+- **Technical Documentation**: https://tinyurl.com/green-beats-poc
 - **GitHub**: Full source code available
+
+---
+
+## 🤝 Team & Credits
+
+Built with 💚 at LBTF Climate Hackathon 2025
+
+- **Abhishek Sokhal** – Backend Development, AI Integration, System Architecture
+- **Ashwani Khatri** – Business Strategy, Market Research, User Experience
+- **Anshika Vijay** – UI/UX Design, Data Analysis, Research
 
 ---
 
