@@ -14,8 +14,8 @@ exports.getAllArtists = async (req, res) => {
   res.json(artists);
 };
 
-exports.getArtistByName = async (req, res) => {
-  const artist = await Artist.findById(req.params.name);
+exports.getArtistById = async (req, res) => {
+  const artist = await Artist.findById(req.params.id);
   if (!artist) return res.status(404).json({ error: 'Artist not found' });
   res.json(artist);
 };

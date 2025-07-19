@@ -35,6 +35,27 @@ paths:
       responses:
         '200':
           description: A user
+
+  /users/{id}/profile:
+    get:
+      tags:
+        - Users
+      summary: Get complete user profile with travel history
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Complete user profile with travel logs and emissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '404':
+          description: User not found
 components:
   schemas:
     User:
@@ -53,3 +74,33 @@ components:
           type: number
         badges:
           type: array
+
+    UserProfile:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        preferredTransportMode:
+          type: string
+        rewardPoints:
+          type: number
+        badges:
+          type: array
+          items:
+            type: string
+        totalEmissionsKgCO2:
+          type: number
+        travelLogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TravelLog'
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time

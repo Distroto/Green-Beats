@@ -6,6 +6,6 @@ const { artistSchema } = require('../validators/artistValidator');
 
 router.post('/', validate(artistSchema), artistController.createArtist);
 router.get('/', artistController.getAllArtists);
-router.get('/:id', artistController.getArtistByName);
+router.get('/:id', artistController.getArtistById);
 
 module.exports = router;

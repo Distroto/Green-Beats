@@ -7,6 +7,8 @@ info:
 paths:
   /emissions:
     post:
+      tags:
+        - Emissions
       summary: Log an emission based on travel
       requestBody:
         required: true
@@ -17,14 +19,22 @@ paths:
       responses:
         '201':
           description: Emission log created and stored
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmissionResponse'
         '400':
           description: Invalid input or concert location missing
+        '404':
+          description: Concert not found or missing coordinates
 
-  /emissions/users/{id}/emissions:
+  /emissions/history/{userId}:
     get:
-      summary: Get all emission logs by user
+      tags:
+        - Emissions
+      summary: Get user's travel history and emissions summary
       parameters:
-        - name: id
+        - name: userId
           in: path
           required: true
           schema:
@@ -32,12 +42,18 @@ paths:
             example: 64e6ab22b6ab123456789abc
       responses:
         '200':
-          description: List of user travel logs and summary
+          description: User's travel history with summary statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TravelHistoryResponse'
         '404':
-          description: User or logs not found
+          description: User not found
 
   /emissions/suggestions/{concertId}:
     get:
+      tags:
+        - Emissions
       summary: Suggest greener travel modes to a concert
       parameters:
         - name: concertId
@@ -49,6 +65,12 @@ paths:
       responses:
         '200':
           description: Emission comparison across travel modes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmissionSuggestionsResponse'
+        '400':
+          description: Origin coordinates required
         '404':
           description: Concert not found or missing coordinates
 
@@ -78,3 +100,109 @@ components:
         originLng:
           type: number
           example: -74.0060
+
+    TravelHistoryResponse:
+      type: object
+      properties:
+        travelLogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/TravelLog'
+        summary:
+          type: object
+          properties:
+            totalTrips:
+              type: number
+            totalEmissionsKgCO2:
+              type: number
+            totalDistanceKm:
+              type: number
+            averageEmissionsPerTrip:
+              type: number
+
+    TravelLog:
+      type: object
+      properties:
+        userId:
+          type: string
+        concertId:
+          type: object
+          properties:
+            name:
+              type: string
+            date:
+              type: string
+              format: date-time
+            location:
+              type: string
+            artist:
+              type: object
+              properties:
+                name:
+                  type: string
+        travelMode:
+          type: string
+        distanceKm:
+          type: number
+        emissionsKgCO2:
+          type: number
+        timestamp:
+          type: string
+          format: date-time
+
+    EmissionResponse:
+      type: object
+      properties:
+        distanceKm:
+          type: number
+        emissionsKgCO2:
+          type: number
+        rewardPoints:
+          type: number
+        newBadges:
+          type: array
+          items:
+            type: string
+        alternativeOptions:
+          type: array
+          items:
+            type: object
+            properties:
+              mode:
+                type: string
+              estimatedEmissions:
+                type: number
+
+    EmissionSuggestionsResponse:
+      type: object
+      properties:
+        concert:
+          type: object
+          properties:
+            name:
+              type: string
+            location:
+              type: string
+            date:
+              type: string
+              format: date-time
+        origin:
+          type: object
+          properties:
+            lat:
+              type: number
+            lng:
+              type: number
+        suggestions:
+          type: array
+          items:
+            type: object
+            properties:
+              mode:
+                type: string
+              distanceKm:
+                type: number
+              estimatedEmissions:
+                type: number
+              isRecommended:
+                type: boolean

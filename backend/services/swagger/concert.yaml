@@ -8,19 +8,48 @@ paths:
       responses:
         '200':
           description: List of concerts
+  /concerts/import:
     post:
       tags:
         - Concerts
-      summary: Create a new concert
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Concert'
+      summary: Import concerts from Ticketmaster API
+      parameters:
+        - name: city
+          in: query
+          schema:
+            type: string
+            example: London
+        - name: size
+          in: query
+          schema:
+            type: number
+            example: 20
       responses:
-        '201':
-          description: Concert created
+        '200':
+          description: Concerts imported successfully
+
+  /concerts/city/{city}:
+    get:
+      tags:
+        - Concerts
+      summary: Get concerts by city
+      parameters:
+        - name: city
+          in: path
+          required: true
+          schema:
+            type: string
+            example: London
+      responses:
+        '200':
+          description: List of concerts in the specified city
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Concert'
+
   /concerts/{id}:
     get:
       tags:
